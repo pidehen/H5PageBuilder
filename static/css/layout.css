@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+.transverse-right-to-origin {
+  -webkit-animation-name: transverseRightToOrigin;
+  animation-name: transverseRightToOrigin;
+}
+
+.transverse-origin-to-left {
+  -webkit-animation-name: transverseOriginToLeft;
+  animation-name: transverseOriginToLeft;
+}
+
+.transverse-left-to-origin {
+  -webkit-animation-name: transverseLeftToOrigin;
+  animation-name: transverseLeftToOrigin;
+}
+
+.transverse-origin-to-right {
+  -webkit-animation-name: transverseOriginToRight;
+  animation-name: transverseOriginToRight;
+}
+
+.page {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  height: 100%;
+  animation-duration: .35s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.page .header {
+  flex: 0 0 .6rem;
+  height: .6rem;
+  border-bottom: 1px solid #d4d4d4;
+  background: #fafafa;
+  box-shadow: 0 1px .04rem rgba(0,0,0,.065);
+  padding-left: .4rem;
+}
+
+.page .header-inner {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 100%;
+}
+
+.page .main {
+  flex: 1;
+  background: #fff;
+  overflow: auto;
+}

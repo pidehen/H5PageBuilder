@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+.btn-submit {
+  display: inline-block;
+  text-align: center;
+  line-height: 1.15;
+  padding: 0 15px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  height: 28px;
+}
+
+.btn-submit i {
+  display: none;
+  vertical-align: middle;
+  margin-right: 2px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  background: url(./btn_submit_loading.gif) no-repeat 0 0 / 100%;
+}
+
+.btn-submit.loading {
+  opacity: .85;
+  padding-left: 18px;
+}
+
+.btn-submit.loading i {
+  display: inline-block;
+}

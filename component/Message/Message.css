@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.message {
+  position: fixed;
+  z-index: 9999;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  bottom: 16px;
+  opacity: 0;
+  color: #fff;
+  font-size: 12px;
+  background: #323232;
+  border-radius: 4px;
+}
+
+.message-inner {
+  display: inline-block;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  white-space: nowrap;
+  line-height: 1.15;
+}
