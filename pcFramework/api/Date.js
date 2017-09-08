@@ -7,8 +7,6 @@
  */
 
 define(function () {
-  var yearRE = /(y+)/i;
-
   return {
 
     /**
@@ -106,7 +104,7 @@ define(function () {
       } else {
         ret = '刚刚';
       }
-      
+
       return ret;
     }
   };
