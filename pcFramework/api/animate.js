@@ -9,7 +9,7 @@
  * 包括定义动画的载体函数和各个动画的业务方法
 */
 
-define(function (bC) {
+define(function () {
   var keys = ['webkitRequestAnimationFrame', 'requestAnimationFrame'],
       cancelKeys = ['webkitCancelAnimationFrame', 'cancelAnimationFrame'],
       durationMap = {
