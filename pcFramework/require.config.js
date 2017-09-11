@@ -2,16 +2,24 @@
 
 define(function () {
 
+  // 常用api模块路径
+  var apiPath = 'pcFramework/api/';
+
   // 第三方模块基础路径
-  var venderPath = 'vender/';
+  var venderPath = 'pcFramework/vender/';
 
   // 自定义类库路径
-  var libPath = 'lib/';
+  var libPath = 'pcFramework/lib/';
 
   // 自定义组件路径
-  var componentPath = 'component/';
+  var componentPath = 'pcFramework/component/';
+
+  // 静态资源路径
+  var staticPath = 'pcFramework/static/';
 
   return {
+    baseUrl: './',
+
     paths: {
       // 异步加载模板
       text: venderPath + 'require.text',
@@ -40,6 +48,8 @@ define(function () {
       AbstractUIModel: libPath + 'AbstractUIModel',
 
       MessageCenter: libPath + 'MessageCenter',
+
+      route: apiPath + 'route',
 
       App: 'src/app',
 
@@ -101,9 +111,9 @@ define(function () {
 
       App: {
         deps: [
-          'css!' + 'static/css/reset.css',
-          'css!' + 'static/css/animate.css',
-          'css!' + 'static/css/layout.css'
+          'css!' + staticPath + 'css/reset.css',
+          'css!' + staticPath + 'css/animate.css',
+          'css!' + staticPath + 'css/layout.css'
         ]
       }
     }

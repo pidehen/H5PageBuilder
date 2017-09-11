@@ -1,4 +1,4 @@
-require(['require.config'], function (rconf) {
+require(['./require.config'], function (rconf) {
   // 配置requirejs
   require.config(rconf);
 
