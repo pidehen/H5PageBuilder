@@ -10,10 +10,11 @@ define([
   'AbstractView',
   'AbstractUIModel'], function (_, bC, AV, UIModel) {
   return AV.extend({
+
     initialize: function ($super, options) {
       options = _.defaults({}, options, {
 
-        // 类别 0:页 1:文本 2:图片 [必传]
+        // 元素类别 [必传] 0:页 1:文本 2:图片
         category: 0,
 
         // 宽 [必传]
@@ -41,31 +42,54 @@ define([
           animationDuration: 2,
           animationTimingFunction: 'ease',
           animationDelay: 0
-        }
+        },
+
+        // 字体大小
+        fontSize: 14,
+
+        // 字体颜色
+        color: '#666',
+
+        // 不透明度
+        fontOpacity: 1,
+
+        // 垂直对其方式
+        vAlign: 'center',
+
+        // 水平对其方式
+        tAlign: 'center',
+
+        // 字之间间隙
+        spacingLetter: 0
 
       });
 
-      // 基础属性
-      this.basicUIModel = new UIModel(
-        _.pick(options, ['category', 'width', 'height', 'position', 'backgroundColor', 'backgroundImage'])
+      // 布局抽象
+      this.layoutUIModel = new UIModel(
+        _.pick(
+          options,
+          ['width', 'height', 'position']
+        )
       );
+
+      // 外观抽象
+      // 需在不同的子类中重写
+      this.appearanceUIModel = null;
 
       // 动画属性
       this.animateUIModel = new UIModel(options.animate);
 
-      // 接收基础属性变化的方法
-      this._setModelChangeMethods(this.basicUIModel, {
-        'width': this._renderLayout('width'),
-        'height': this._renderLayout('height'),
-        'left': this._renderLayout('left'),
-        'top': this._renderLayout('top')
-      });
+      // 设置布局属性变化的处理方法
+      this.setLayoutChange();
+
+      // 设置外观属性变化的处理方法
+      this.setAppearanceChange();
     },
 
     /**
      * 设置多个订阅属性变化的方法
      */
-    _setModelChangeMethods: function (model, methodMap) {
+    _setSingleAttrChangeMethods: function (model, methodMap) {
       _.each(
         methodMap,
          _.bind(function (attr, method) {
@@ -74,19 +98,32 @@ define([
       );
     },
 
+    setLayoutChange: function () {
+      this._setSingleAttrChangeMethods(this.basicUIModel, {
+        'width': this.renderLayout('width'),
+        'height': this.renderLayout('height'),
+        'left': this.renderLayout('left'),
+        'top': this.renderLayout('top')
+      });
+    },
+
+    setAppearanceChange: function () {
+
+    },
+
     /**
-     * 布局属性发生变化时调用
+     * 布局属性发生变化时接收方法
      */
-    _renderLayout: function (attr) {
+    renderLayout: function (attr) {
       return function (model, changedValue) {
-        
+
       }
     },
 
     /**
      * 外观属性发生变化时调用
      */
-    _renderAppearance: function (attr) {
+    renderAppearance: function (attr) {
       return function (model, changedValue) {
 
       }

@@ -3,9 +3,7 @@ require(['./require.config'], function (rconf) {
   require.config(rconf);
 
   // 加载应用入口文件
-  require(['mobileAdapter', 'App'], function (mobileAdapter, App) {
-    // 移动端适配
-    mobileAdapter(640);
+  require(['App'], function (App) {
 
     // 开启jsonp调试
     window.isJSONP = true;
